@@ -23,18 +23,22 @@ def query(query_texts, n_results=2, where={"ResourceType":"Content"}):
 
         results = collection.query(query_texts=query_texts, n_results=n_results, where=where)
         documents = []
+        metadatas = []
         for i, document_list in enumerate(results['documents']):
             for j, document in enumerate(document_list):
                 if results['distances'][i][j] < 0.5:
                     metadata = results['metadatas'][i][j]
-                    documents.append({'document': document, 'metadatas': metadata})
+                    distance = results['distances'][i][j]
+                    documents.append(document)
+                    metadatas.append({'metadata': metadata, 'distance': distance})
 
         if not documents:
             print("No relevant documents")
-            return "No relevant documents"
+            return "No relevant documents", metadatas
 
-        return documents
+        return documents, metadatas
+
 
     except Exception as e:
         print(f"Error during query: {e}")
-        return []
+        return f"Error during query: {e}", []
