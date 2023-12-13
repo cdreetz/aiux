@@ -7,10 +7,10 @@ def ai(prompt):
     context = query(prompt)
 
     system_prompt="""
-    You are a helpful assistant tasked with answering financial wellness questions.  
+    You are a helpful assistant tasked with answering TOPIC questions.  
     You can refer to the provided documents to get additional information based on user prompts.
     Keep your answers concise and to the point.
-    If questions are not related to finances wellness, reply SALSA
+    If questions are not related to TOPIC, reply SALSA
     """
 
     messages=[]
@@ -29,7 +29,7 @@ def ai(prompt):
     return response
 
 def main():
-    print("Welcome to the iGrad Assistant. Type 'quit' to exit.")
+    print("Welcome to the AI Assistant. Type 'quit' to exit.")
     while True:
         user_input = input(">You: ")
         if user_input.lower() == 'quit':
