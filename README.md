@@ -15,3 +15,8 @@ Data Gen Pipeline:
 - Iterate over your documents to create QA datasets with 100s-1000s of pairs specific to your documents
 - Fine tune a model on those QA pairs to get better and up to date answers with the new and specific information
 - Evauluate the perf gain by using generated questions and prompting the pre fine tune and post fine tune models to answer without any additional context
+
+
+
+Links 
+- https://wandb.ai/vincenttu/finetuning_mistral7b/reports/Fine-tuning-Mistral-7B-with-W-B--Vmlldzo1NTc3MjMy
