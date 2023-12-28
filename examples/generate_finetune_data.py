@@ -195,3 +195,15 @@ def format_for_finetuning(question_answer_pairs):
         formatted_samples.append(formatted_sample)
 
     return formatted_samples
+
+
+def main(urls):
+    formatted_pairs = []
+    for url in urls:
+        chunks = parse_pdf_from_url(url)
+        for chunk in chunks:
+            question = get_question(chunk)
+            answer = get_answer(question, chunk)
+            formatted_pairs = format_for_finetuning([(question, answer)])
+
+    return formatted_pairs
