@@ -1,4 +1,5 @@
 from transformers import AutoTokenizer
+from urls import urls
 
 tokenizer = AutoTokenizer.from_pretrained("mistralai/Mixtral-8x7B-Instruct-v0.1")
 
@@ -30,4 +31,3 @@ example_json = [
         },
     ]
 
-print(format_and_tokenize_examples_from_json(example_json))
